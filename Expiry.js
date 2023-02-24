@@ -1,9 +1,10 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+import { ref, push } from "firebase/database";
+import  axios from "axios";
+import cheerio from "cheerio";
+import { database } from "./firebaseConfig.js";
 
 //TODO: 
 // fix 403 error
-// store in database
 
 const getExpiry = async () => {
 	var exp_list =[];
@@ -18,6 +19,10 @@ const getExpiry = async () => {
 			var days = $('div.red-image > span').text();
 			console.log(days);
 			exp_list.push([item, days]);
+			push(ref(database, 'items/'), {
+				name: item,
+				expiry: days,
+			});
 		} 
 		catch (error) {
 			console.log('index is');
