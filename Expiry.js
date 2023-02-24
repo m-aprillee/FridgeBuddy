@@ -1,6 +1,10 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+//TODO: 
+// fix 403 error
+// store in database
+
 const getExpiry = async () => {
 	var exp_list =[];
 	for (var i = 16334; i <= 18913; i++){
@@ -22,7 +26,7 @@ const getExpiry = async () => {
 			throw error;
 		}
 	}
-	console.log(exp_list);
+	return exp_list;
 };
 
 getExpiry();
