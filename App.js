@@ -9,7 +9,8 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text>Universal React with Expo</Text>
+      <Text>FridgeBuddy</Text>
+      <Text>Your Grocery Management solution</Text>
     </View>
   );
 }
