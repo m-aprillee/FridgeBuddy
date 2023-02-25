@@ -10,7 +10,7 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBEzLPQ9tgvrAfzLx8eOCkcpIVXC-SoSO0",
+  apiKey: "****",
   authDomain: "fridgebuddy-4d321.firebaseapp.com",
   projectId: "fridgebuddy-4d321",
   storageBucket: "fridgebuddy-4d321.appspot.com",
