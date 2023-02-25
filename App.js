@@ -1,16 +1,28 @@
-import { View, Text } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import Login from "./Pages/LoginPage/Login";
+import Home from "./Pages/HomePage/Home";
 
-export default function App() {
+const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>FridgeBuddy</Text>
-      <Text>Your Grocery Management solution</Text>
-    </View>
-  );
+    // <Login/>
+    <Home/>
+  )
 }
+
+export default App
+
+const styles = StyleSheet.create ({
+  myView: {
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  myTitle: {
+     marginTop: 50,
+     textAlign: 'center',
+     color: 'blue',
+     fontWeight: 'bold',
+     fontSize: 20
+  }
+})
