@@ -1,4 +1,5 @@
-# My Universal React Project
+# FridgeBuddy
+## Your Grocery Management Solution
 
 <p>
   <!-- iOS -->
