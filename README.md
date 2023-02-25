@@ -16,29 +16,13 @@
   </a>
 </p>
 
-## 🚀 How to use
+## Contributors
+UW2023 CS125
+Mignon April Lee, Navdha Jindal, Zoya Hajee
 
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` or `npm run start` to start the bundler.
-- Open the project in a React runtime to try it:
-  - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
-  - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+## About FridgeBuddy
+It is difficult to manage all the different foods we buy, given each food has a different shelf life. In addition, students often make impulse food purchases which can result in an overstocking of the fridge and/or unhealthy choices. At times, there are so many ingredients in the fridge or in the shelves, but recipes that use all these ingredients don’t come to mind, which result in overspending on food instead of cooking. Food is overwhelming, and it takes a lot of deliberate action, time, and brain power to manage food productively. What needs to be managed starts with what you need to buy, by when you need to use these groceries, and what to make with these ingredients. 
 
-## Running/Modifying Native Code
+Currently, there are many apps that focus on a part of the problem for grocery management. One example includes AnyList (grocery list maker), but that doesn’t let users know information such as shelf life of the groceries that are already bought. There aren’t many feasible options that provide an end-to-end solution for food management that provides guidance on what to buy and when to use it by that creates an easy and cohesive experience for the user so they can better keep track of their fridge. Food is always going bad especially in the fridges of college students, and currently there is no viable solution on a mobile app to serve these needs.
 
-You can generate native iOS and Android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
-
-> 💡 Learn more about [native code in Expo](https://docs.expo.dev/workflow/customizing/)
-
-## Publishing
-
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.dev/distribution/publishing-websites/).
-
-## 📝 Notes
-
-- Learn more about [Universal React](https://docs.expo.dev/).
-- See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+We plan to build a system that assists the user in their grocery shopping and management process. We plan to have the user log what they want to as well as what they have bought. The data that they input will then be used alongside external information like common shelf-life to make recommendations for when they should start to use up items that will go bad soon or when to throw out items that are likely to have gone bad. Additionally, the next time the user goes grocery shopping, they can get recommended what they frequently buy and use as well as additional ingredients that might go well with those, or other frequently bought items by keeping track of how often the user buys and uses them up. The data the user will input will be stored on a smartphone application and the system will be built using React Native.
