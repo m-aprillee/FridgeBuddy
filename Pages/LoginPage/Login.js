@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native'
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+// const auth = getAuth();
 
 const state = {
     email: '',
@@ -14,9 +16,31 @@ const  handlePassword = (text) => {
     state.password = text
  }
 
-const login = (email, pass) => {
-    alert('email: ' + email + ' password: ' + pass)
+const verifyInput = (email, password) => {
+   if (email == '' && password == '') {
+      alert("Email/Password cannot be empty");
+      return false;
+   } 
+   return true;
  }
+// TODO
+const login = (email, password) => {
+    alert('[LOGIN] email: ' + email + ' password: ' + password)
+ }
+ 
+/*
+ signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    alert(email, password);
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+  */
 
 const Login = ({navigation}) => {
     return (
@@ -36,11 +60,16 @@ const Login = ({navigation}) => {
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {handlePassword}/>
-            
+            <Button
+               title = "New User? Register Here"
+               onPress = {
+                  () => navigation.navigate('Register')
+               }
+            />
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {login(state.email, state.password), navigation.navigate('My Fridge')}
+                  () => {/*signInWithEmailAndPassword(auth, state.email, state.password),*/login(state.email, state.password), verifyInput(state.email, state.password) && navigation.navigate('My Fridge')} // TODO
                }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
