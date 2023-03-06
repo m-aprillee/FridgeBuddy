@@ -17,10 +17,14 @@ const  handlePassword = (text) => {
  }
 
 const verifyInput = (email, password) => {
+   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
    if (email == '' && password == '') {
       alert("Email/Password cannot be empty");
       return false;
-   } 
+   } else if (reg.test(email) === false) {
+      alert("Must be a valid email.")
+      return false;
+   }
    return true;
  }
 // TODO

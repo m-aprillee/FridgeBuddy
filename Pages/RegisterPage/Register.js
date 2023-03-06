@@ -37,8 +37,12 @@ const handleReEnterPassword = (text) => {
 }
 
 const verifyInput = (email, password, reenter) => {
+  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   if (email == '' || password == '' || reenter == '') {
     alert("All fields are required");
+    return false;
+  } else if (reg.test(email) === false) {
+    alert("Must be a valid email.")
     return false;
   } else if (password !== reenter) {
     alert("Passwords do not match");
