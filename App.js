@@ -1,12 +1,37 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from "./Pages/LoginPage/Login";
 import Home from "./Pages/HomePage/Home";
+import AddItem from "./Pages/AddItemPage/AddItem";
+import EditList from "./Pages/EditListPage/EditList";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     // <Login/>
-    <Home/>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+        />
+        <Stack.Screen 
+          name="My Fridge"
+          component={Home} 
+        />
+        <Stack.Screen
+          name="Add Item"
+          component={AddItem}
+        />
+        <Stack.Screen
+          name="Edit List"
+          component={EditList}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
