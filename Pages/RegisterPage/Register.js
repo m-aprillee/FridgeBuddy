@@ -84,7 +84,7 @@ const Register = ({navigation}) => {
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {/*createUserWithEmailAndPassword(auth, state.email, state.password),*/ register(state.email, state.password, state.reenter), verifyInput(state.email, state.password, state.reenter) && navigation.navigate('My Fridge')} // TODO
+                  () => {/*createUserWithEmailAndPassword(auth, state.email, state.password),*/ register(state.email, state.password, state.reenter), verifyInput(state.email, state.password, state.reenter) && navigation.navigate('FridgeBuddy')} // TODO
                }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>

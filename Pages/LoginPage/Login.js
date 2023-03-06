@@ -69,7 +69,7 @@ const Login = ({navigation}) => {
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {/*signInWithEmailAndPassword(auth, state.email, state.password),*/login(state.email, state.password), verifyInput(state.email, state.password) && navigation.navigate('My Fridge')} // TODO
+                  () => {/*signInWithEmailAndPassword(auth, state.email, state.password),*/login(state.email, state.password), verifyInput(state.email, state.password) && navigation.navigate('FridgeBuddy')} // TODO
                }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>

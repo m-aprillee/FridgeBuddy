@@ -8,6 +8,7 @@ import Register from "./Pages/RegisterPage/Register";
 import Home from "./Pages/HomePage/Home";
 import AddItem from "./Pages/AddItemPage/AddItem";
 import EditList from "./Pages/EditListPage/EditList";
+import Footer from "./Footer";
 
 
 const Stack = createNativeStackNavigator();
@@ -26,8 +27,8 @@ const App = () => {
           component={Register}
         />
         <Stack.Screen 
-          name="My Fridge"
-          component={Home} 
+          name="FridgeBuddy"
+          component={Footer} 
         />
         <Stack.Screen
           name="Add Item"
