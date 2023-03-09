@@ -5,6 +5,7 @@ class NotificationCenterPreview extends React.Component {
     state = {
         items: [
             {
+                id: 123,
                 name: 'Apple',
                 amt: 3,
                 expiry: 2,
@@ -64,14 +65,14 @@ const styles = StyleSheet.create({
           alignSelf: 'center',
        },
        textName: {
-        alignSelf: 'left',
+        alignSelf: 'flex-start',
        },
        textAmt: {
         alignSelf: 'center',
        },
        textExpiry: {
-        alignSelf: 'right',
-        alignItems: 'right',
+        alignSelf: 'flex-end',
+        alignItems: 'flex-end',
         fontWeight: 'bold',
        }
 })
