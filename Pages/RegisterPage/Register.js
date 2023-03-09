@@ -1,21 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native'
-//import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebaseConfig.js";
 
-// const auth = getAuth();
-
-/*
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-*/
 
 //TEMP STUFF
 const state = {
@@ -88,8 +74,32 @@ const Register = ({navigation}) => {
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {/*createUserWithEmailAndPassword(auth, state.email, state.password),*/ register(state.email, state.password, state.reenter), verifyInput(state.email, state.password, state.reenter) && navigation.navigate('FridgeBuddy')} // TODO
-               }>
+                  () => {
+                    register(state.email, state.password, state.reenter);
+                    verifyInput(state.email, state.password, state.reenter);
+                    createUserWithEmailAndPassword(auth, state.email, state.password)
+                    .then((userCredential) => {
+                      // Signed in 
+                      const user = userCredential.user;
+                      // ...
+                    })
+                    .catch((error) => {
+                      alert(error.message);
+                    });
+                    onAuthStateChanged(auth, (user) => {
+                      if (user) {
+                        // User is signed in, see docs for a list of available properties
+                        // https://firebase.google.com/docs/reference/js/firebase.User
+                        const uid = user.uid;
+                        navigation.navigate('FridgeBuddy');
+                        // ...
+                      } else {
+                        // User is signed out
+                        // ...
+                      }
+                    });
+                  }
+              }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
       </View>

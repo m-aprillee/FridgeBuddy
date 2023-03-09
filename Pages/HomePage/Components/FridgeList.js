@@ -84,12 +84,12 @@ const styles = StyleSheet.create ({
       
    },
    textName: {
-    alignSelf: 'left',
+    alignSelf: 'flex-start',
    },
    textAmt: {
     alignSelf: 'center',
    },
    textExpiry: {
-    alignSelf: 'right',
+    alignSelf: 'flex-end',
    }
 })

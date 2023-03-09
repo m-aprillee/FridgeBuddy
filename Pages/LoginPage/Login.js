@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native'
-// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebaseConfig.js";
 
-// const auth = getAuth();
 
 const state = {
     email: '',
@@ -31,20 +31,6 @@ const verifyInput = (email, password) => {
 const login = (email, password) => {
     alert('[LOGIN] email: ' + email + ' password: ' + password)
  }
- 
-/*
- signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    alert(email, password);
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-  */
 
 const Login = ({navigation}) => {
     return (
@@ -73,7 +59,31 @@ const Login = ({navigation}) => {
             <TouchableOpacity
                style = {styles.submitButton}
                onPress = {
-                  () => {/*signInWithEmailAndPassword(auth, state.email, state.password),*/login(state.email, state.password), verifyInput(state.email, state.password) && navigation.navigate('FridgeBuddy')} // TODO
+                  () => {
+                     login(state.email, state.password); 
+                     verifyInput(state.email, state.password);
+                     signInWithEmailAndPassword(auth, state.email, state.password)
+                     .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        // ...
+                      })
+                      .catch((error) => {
+                        alert(error.message);
+                      });
+                     onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                          // User is signed in, see docs for a list of available properties
+                          // https://firebase.google.com/docs/reference/js/firebase.User
+                          const uid = user.uid;
+                          navigation.navigate('FridgeBuddy');
+                          // ...
+                        } else {
+                          // User is signed out
+                          // ...
+                        }
+                      });
+                      } // TODO
                }>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
@@ -122,3 +132,19 @@ const styles = StyleSheet.create({
        fontSize: 30
     }
  })
+
+
+//  import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// const auth = getAuth();
+// createUserWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in 
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ..
+//   });
