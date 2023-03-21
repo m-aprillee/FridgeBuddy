@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'rea
 const EditList = ({navigation}) => {
     return(
         <View>
-            <Text>EditList</Text>
+            <Text>EditListToImplement</Text>
         </View>
     )
 }
