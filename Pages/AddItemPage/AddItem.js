@@ -1,27 +1,26 @@
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native'
-import { FC  } from 'react'
-
-const state = {
-   name: '',
-   quantity: '',
-   category: ''
-};
-
-const handleName = (text) => {
-   state.name = text
-}
-
-const  handleQuantity = (text) => {
-   state.quantity = text
-}
-
-const  handleCategory = (text) => {
-   state.category = text
-}
+import { database } from "../../firebaseConfig";
+import React, { useState } from 'react';
+import { firebase } from '@react-native-firebase/auth';
+import { ref, push } from 'firebase/database';
 
 
 
 const AddItem = ({navigation}) => {
+
+   const [addData, setAddData] = useState('')
+   const [addQuantity, setAddQuantity] = useState('')
+   const [addCategory, setAddCategory] = useState('')
+   
+   const addField = () => {
+   
+      push(ref(database, 'loggedItems/'), {
+         name: addData,
+         quantity: addQuantity,
+         category: addCategory
+      });
+   }
+
     return(
         <View style={styles.container}>
                <TextInput style = {styles.input}
@@ -29,14 +28,18 @@ const AddItem = ({navigation}) => {
                placeholder = "Name"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {handleName}/>
+               onChangeText = {(addName) => setAddData(addName)}
+               value={addData}
+               />
 
                <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Quantity"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {handleQuantity}/>
+               onChangeText = {(addQuantityData) => setAddQuantity(addQuantityData)}
+               value={addQuantity}
+               />
 
                {/* add category dropdown */}
                <TextInput style = {styles.input}
@@ -44,7 +47,9 @@ const AddItem = ({navigation}) => {
                placeholder = "Category"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {handleCategory}/>
+               onChangeText = {(addCategoryData) => setAddCategory(addCategoryData)}
+               value={addCategory}
+               />
 
                <View style={styles.buttonContainer}>
                   <Button
@@ -58,18 +63,29 @@ const AddItem = ({navigation}) => {
                   color="#50C878"
                   title = "Save"
                   onPress = {
+                     addField
+                     // () => navigation.navigate('Home')
+                  }
+                  />
+                  <Button
+                  color="#89CFF0"
+                  title = "Done"
+                  onPress = {
                      () => navigation.navigate('Home')
                   }
                   />
-                  {/* <TouchableOpacity
-                  style = {styles.submitButton}
-                  onPress = {
-                     //add to items 
-               </TouchableOpacity> */}
                </View>
         </View>
     )
 }
+
+// export default function AddItem() {
+//    return (
+//       <View style={styles.container}>
+//          <AddItemPage/>
+//       </View>
+//    )
+// }
 
 export default AddItem
 
