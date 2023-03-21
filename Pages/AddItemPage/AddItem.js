@@ -46,25 +46,27 @@ const AddItem = ({navigation}) => {
                autoCapitalize = "none"
                onChangeText = {handleCategory}/>
 
-               <Button
-               color="#ff5c5c"
-               title = "Cancel"
-               onPress = {
-                  () => navigation.navigate('Home')
-               }
-               />
-               <Button
-               color="#50C878"
-               title = "Save"
-               onPress = {
-                  () => navigation.navigate('Home')
-               }
-               />
-               {/* <TouchableOpacity
-               style = {styles.submitButton}
-               onPress = {
-                  //add to items 
-            </TouchableOpacity> */}
+               <View style={styles.buttonContainer}>
+                  <Button
+                  color="#ff5c5c"
+                  title = "Cancel"
+                  onPress = {
+                     () => navigation.navigate('Home')
+                  }
+                  />
+                  <Button
+                  color="#50C878"
+                  title = "Save"
+                  onPress = {
+                     () => navigation.navigate('Home')
+                  }
+                  />
+                  {/* <TouchableOpacity
+                  style = {styles.submitButton}
+                  onPress = {
+                     //add to items 
+               </TouchableOpacity> */}
+               </View>
         </View>
     )
 }

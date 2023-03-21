@@ -1,5 +1,27 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, Animated } from 'react-native'
+
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
+const RenderRight = (progress, dragX) => {
+   const scale = dragX.interpolate({
+      inputRange: [-50, 0.5],
+      outputRange: [1, 0.1]
+   })
+   const Style = {
+      transform : [
+         {
+            scale
+         }
+      ]
+   }
+   return(
+       <View style={{width: 80, backgroundColor: 'red', alignItems: 'center'}}>
+           <Animated.Text style={[Style, {color: '#fff', fontWeight: "400"}]}>Delete</Animated.Text>
+       </View>
+   )
+
+}
    
 class FridgeList extends Component {
    state = {
@@ -36,10 +58,14 @@ class FridgeList extends Component {
          }
       ]
    }
+
    alertItemExpiry = (item) => {
       alert(item.expiry)
    }
    render() {
+      const deleteItem = () => {
+         alert('Item will be deleted')
+      }
       return (
          <View style={styles.container}>
             <Text>Sort By</Text>
@@ -49,11 +75,15 @@ class FridgeList extends Component {
                      key = {item.id}
                      
                      onPress = {() => this.alertItemExpiry(item)}>
-                     <Text style = {styles.text}>
-                        <Text style={styles.textName}>{item.name} </Text>
-                        <Text style={styles.textAmt}>{item.amt} units </Text>
-                        <Text style={styles.textExpiry}>{item.expiry} days</Text>
-                     </Text>
+                     <Swipeable overshootRight={false} onSwipeableRightOpen={deleteItem} renderRightActions={RenderRight}>
+                        <Text style = {styles.text}>
+                     
+                           <Text style={styles.textName}>{item.name} </Text>
+                           <Text style={styles.textAmt}>{item.amt} units </Text>
+                           <Text style={styles.textExpiry}>{item.expiry} days</Text>
+                     
+                        </Text>
+                     </Swipeable>
                   </TouchableOpacity>
                ))
             }

@@ -1,11 +1,81 @@
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Button, TouchableHighlight } from 'react-native'
+import FridgeList from "../HomePage/Components/FridgeList.js"
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
+//delete this page(?)
+
+// const RenderRight = (progress, dragX) => {
+//     return(
+//         <View style={styles.swipecontainer}>
+//             <Text>Delete</Text>
+//         </View>
+//     )
+
+// }
+
 
 const EditList = ({navigation}) => {
     return(
-        <View>
-            <Text>EditListToImplement</Text>
-        </View>
+        <Swipeable renderRightActions={RenderRight}>
+            <View style={styles.container}>
+                <FridgeList/>
+            </View>
+        </Swipeable>
+
+        
     )
 }
 
 export default EditList
+
+const styles = StyleSheet.create({
+    container: {
+       paddingTop: 23
+    },
+    swipecontainer: {
+        paddingTop: 23,
+        backgroundColor: 'red'
+     },
+    logoText: {
+       textAlign: 'center',
+       color: 'blue',
+       padding: 30,
+       fontSize: 20,
+       fontWeight: 'bold'
+    },
+    input: {
+       margin: 15,
+       height: 40,
+       width: 250,
+       borderColor: '#7a42f4',
+       borderWidth: 1,
+       textAlign: 'left',
+       alignSelf: 'center'
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        alignSelf: 'center'
+    },
+    button: {
+       backgroundColor: 'lightblue',
+       padding: 10,
+       margin: 15,
+       height: 40,
+       width: 100,
+       alignSelf: 'center',
+    },
+    buttonText:{
+       color: 'black',
+       textAlign: 'center',
+    },
+    title: {
+       paddingTop: 30,
+       paddingBottom: 10,
+       textAlign: 'center',
+       color: 'blue',
+       fontWeight: 'bold',
+       fontSize: 25,
+       backgroundColor: 'lightblue'
+
+    }
+ })
