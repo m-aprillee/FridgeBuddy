@@ -12,6 +12,11 @@ class NotificationCenterPreview extends React.Component {
             },
         ]
     }
+
+    alertItemExpiry(item) {
+
+    }
+    
     render() {
         return(
             <View style={styles.container}>

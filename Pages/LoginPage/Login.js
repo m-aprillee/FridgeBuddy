@@ -29,7 +29,7 @@ const verifyInput = (email, password) => {
  }
 // TODO
 const login = (email, password) => {
-    alert('[LOGIN] email: ' + email + ' password: ' + password)
+   //  alert('[LOGIN] email: ' + email + ' password: ' + password)
  }
 
 const Login = ({navigation}) => {

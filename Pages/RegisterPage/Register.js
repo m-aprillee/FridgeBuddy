@@ -38,7 +38,7 @@ const verifyInput = (email, password, reenter) => {
 }
 
 const register = (email, password, reenter) => {
-  alert('[REGISTER] email: ' + email + ' password: ' + password + ' reenter: ' + reenter);
+  // alert('[REGISTER] email: ' + email + ' password: ' + password + ' reenter: ' + reenter);
 }
 
 const Register = ({navigation}) => {
