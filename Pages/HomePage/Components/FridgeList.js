@@ -1,13 +1,7 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Animated } from 'react-native'
-// import { database } from "../../firebaseConfig";
-import { ref, push } from 'firebase/database';
-import { firebase } from '@react-native-firebase/auth';
-
 
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { async } from '@firebase/util';
-import { FlatList } from 'react-native-gesture-handler';
 
 const RenderRight = (progress, dragX) => {
    const scale = dragX.interpolate({
@@ -28,40 +22,42 @@ const RenderRight = (progress, dragX) => {
    )
 
 }
-
-
    
 class FridgeList extends Component {
-   
    state = {
       names: [
+         {
+            id: 0,
+            name: 'Banana',
+            amt: 3,
+            expiry: 7,
+         },
          {
             id: 1,
             name: 'Apple',
             amt: 3,
             expiry: 2,
+         },
+         {
+            id: 2,
+            name: 'Wheat Bread',
+            amt: 1,
+            expiry: 21,
+         },
+         {
+            id: 3,
+            name: 'Bell Pepper',
+            amt: 6,
+            expiry: 7,
+         },
+         {
+            id: 4,
+            name: 'Cucumber',
+            amt: 3,
+            expiry: 7,
          }
-         // {
-         //    id: 2,
-         //    name: 'Wheat Bread',
-         //    amt: 1,
-         //    expiry: 21,
-         // },
-         // {
-         //    id: 3,
-         //    name: 'Bell Pepper',
-         //    amt: 6,
-         //    expiry: 7,
-         // },
-         // {
-         //    id: 4,
-         //    name: 'Cucumber',
-         //    amt: 3,
-         //    expiry: 7,
-         // }
       ]
    }
-
 
    alertItemExpiry = (item) => {
       alert(item.expiry)
@@ -70,13 +66,8 @@ class FridgeList extends Component {
       const deleteItem = () => {
          alert('Item will be deleted')
       }
-
-
       return (
          <View style={styles.container}>
-            {/* <FlatList>
-               data={users}
-            </FlatList> */}
             <Text>Sort By</Text>
             {
                this.state.names.map((item, index) => (

@@ -41,9 +41,10 @@ const AddItem = ({navigation}) => {
                value={addQuantity}
                />
 
+               {/* add category dropdown */}
                <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
-               placeholder = "Storage Location"
+               placeholder = "Category"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {(addCategoryData) => setAddCategory(addCategoryData)}
@@ -63,13 +64,14 @@ const AddItem = ({navigation}) => {
                   title = "Save"
                   onPress = {
                      addField
+                     // () => navigation.navigate('Home')
                   }
                   />
                   <Button
                   color="#89CFF0"
                   title = "Done"
                   onPress = {
-                     () => navigation.navigate('Home2')
+                     () => navigation.navigate('Home')
                   }
                   />
                </View>
