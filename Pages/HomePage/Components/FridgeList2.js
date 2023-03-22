@@ -31,10 +31,16 @@ const RenderRight = (progress, dragX) => {
 
 
    
-class FridgeList extends Component {
+class FridgeList2 extends Component {
    
    state = {
       names: [
+         {
+            id: 0,
+            name: 'Oranges',
+            amt: 2,
+            expiry: 7,
+         },
          {
             id: 1,
             name: 'Apple',
@@ -100,7 +106,7 @@ class FridgeList extends Component {
       )
    }
 }
-export default FridgeList
+export default FridgeList2
 
 const styles = StyleSheet.create ({
    container: {
