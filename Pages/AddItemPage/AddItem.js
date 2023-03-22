@@ -3,6 +3,7 @@ import { database } from "../../firebaseConfig";
 import React, { useState } from 'react';
 import { firebase } from '@react-native-firebase/auth';
 import { ref, push } from 'firebase/database';
+import { loggedItems, addNewItem } from '../HomePage/Components/LoggedItems';
 
 
 
@@ -44,7 +45,7 @@ const AddItem = ({navigation}) => {
                {/* add category dropdown */}
                <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
-               placeholder = "Category"
+               placeholder = "Storage"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
                onChangeText = {(addCategoryData) => setAddCategory(addCategoryData)}
@@ -63,8 +64,9 @@ const AddItem = ({navigation}) => {
                   color="#50C878"
                   title = "Save"
                   onPress = {
-                     addField
+                     // addField
                      // () => navigation.navigate('Home')
+                     addNewItem(5, "Eggs", 12, 28)
                   }
                   />
                   <Button
